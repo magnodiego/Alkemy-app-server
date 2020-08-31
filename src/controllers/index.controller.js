@@ -92,7 +92,6 @@ const updateWishlist = (req, res)=>{
             userHash
         ]).then((response)=>{
             const { name, lastname, username, role, hash, apps, wishlist } = response.rows[0]
-            console.log('NUEVA WISHLIST', wishlist)
             if(wishlist)
             res.status(200).send({
                 name: name,
@@ -104,18 +103,15 @@ const updateWishlist = (req, res)=>{
                 wishlist: wishlist
             })
         }).catch((err)=>{
-            console.log(err)
             res.status(500).send({error: 'CAN NOT FIND USER'})
         })
     }).catch((err)=>{
-        console.log(err)
         res.status(500).send({error: "Can't find user"})
     })
 }
 
 
 const updateUserApps = (req, res)=>{
-    console.log(req.body)
     const { userHash } = req.body
     const { newUserApps } = req.body
     pool.query(`UPDATE users SET apps = $1 WHERE hash = $2`, [
@@ -136,11 +132,9 @@ const updateUserApps = (req, res)=>{
                 wishlist: wishlist
             })
         }).catch((err)=>{
-            console.log(err)
             res.status(500).send({error: 'CAN NOT FIND USER'})
         })
     }).catch((err)=>{
-        console.log(err)
         res.status(500).send({error: "Can't find user"})
     })
 }
@@ -261,7 +255,6 @@ const getDeveloperApps = async (req,res)=>{
 }
 
 const getUserApps = async (req,res)=>{
-    console.log(req.query)
     let { userApps } = req.query;
     userApps = userApps.split(',');
     let finalRes = [];
