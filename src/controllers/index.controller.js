@@ -274,9 +274,14 @@ const getUserApps = async (req,res)=>{
 
 
 const deleteApp = async (req,res)=>{
-    const { token } = req.body 
-    const response = await pool.query('DELETE FROM apps WHERE token = $1', [token])
-    
+    const { apphash } = req.query 
+    pool.query('DELETE FROM apps WHERE apphash = $1', [apphash])
+    .then((res)=>{
+        res.send('deleted')
+    })
+    .catch((err)=>{
+        res.send('error: not deleted')
+    })
 }
 
 const updateApp = (req, res)=>{
@@ -326,5 +331,6 @@ module.exports = {
     getDeveloperApps,
     updateApp,
     updateUserApps,
-    getUserApps
+    getUserApps,
+    deleteApp
 }

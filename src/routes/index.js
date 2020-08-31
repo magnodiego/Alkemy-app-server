@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { registerUser, login, getUser, getCategories, registerApp, getMainApps , getImage, getCategoryApps, updateWishlist, getUserWishlistApps, getDeveloperApps, updateApp, updateUserApps, getUserApps } = require('../controllers/index.controller')
+const { registerUser, login, getUser, getCategories, registerApp, getMainApps , getImage, getCategoryApps, updateWishlist, getUserWishlistApps, getDeveloperApps, updateApp, updateUserApps, getUserApps, deleteApp } = require('../controllers/index.controller')
 
 const router = Router();
 
@@ -20,5 +20,6 @@ router.get('/api/me/profile/userApps', getUserApps)
 
 router.put('/api/me/app/update', updateApp)
 
+router.delete('/api/me/app/delete', deleteApp)
 
 module.exports = router
