@@ -7,7 +7,7 @@ Server para la aplicación desarrollada para el challenge de Alkemy
 Para correr el proyecto se debe tener instalado 
 
 * NPM
-* Tener instalado Postgresql
+* Postgresql
 
 ## Comenzando 🚀
 
