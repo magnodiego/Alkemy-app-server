@@ -16,6 +16,7 @@ Clonar el repo dentro de una carpeta denominada server, crear un usuario de nomb
 El siguiente paso será ejecutar los siguientes comandos
 
 _npm i_
+
 _nodemon server.js_
 
 De esta forma el servidor ya está listo para usarse.
